@@ -16,4 +16,22 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
 		responseObserver.onCompleted();
 	}
 
+	@Override
+	public void insertRecord(UserDetails.UserRequest request, StreamObserver<UserDetails.Response> responseObserver) {
+		UserDetails.Response response = UserDetails.Response.newBuilder()
+				.setMessage("Record inserted sucessfully " + request.getName()).build();
+		responseObserver.onNext(response);
+
+		responseObserver.onCompleted();
+	}
+
+	@Override
+	public void updateRecord(UserDetails.UserRequest request, StreamObserver<UserDetails.Response> responseObserver) {
+		UserDetails.Response response = UserDetails.Response.newBuilder()
+				.setMessage("Record updated sucessfully " + request.getName()).build();
+		responseObserver.onNext(response);
+
+		responseObserver.onCompleted();
+	}
+
 }

@@ -59,6 +59,70 @@ public final class UserServiceGrpc {
      return getSearchUserMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.grpc.server.proto.UserDetails.UserRequest,
+      com.grpc.server.proto.UserDetails.Response> getInsertRecordMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "InsertRecord",
+      requestType = com.grpc.server.proto.UserDetails.UserRequest.class,
+      responseType = com.grpc.server.proto.UserDetails.Response.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.grpc.server.proto.UserDetails.UserRequest,
+      com.grpc.server.proto.UserDetails.Response> getInsertRecordMethod() {
+    io.grpc.MethodDescriptor<com.grpc.server.proto.UserDetails.UserRequest, com.grpc.server.proto.UserDetails.Response> getInsertRecordMethod;
+    if ((getInsertRecordMethod = UserServiceGrpc.getInsertRecordMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getInsertRecordMethod = UserServiceGrpc.getInsertRecordMethod) == null) {
+          UserServiceGrpc.getInsertRecordMethod = getInsertRecordMethod = 
+              io.grpc.MethodDescriptor.<com.grpc.server.proto.UserDetails.UserRequest, com.grpc.server.proto.UserDetails.Response>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "UserService", "InsertRecord"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpc.server.proto.UserDetails.UserRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpc.server.proto.UserDetails.Response.getDefaultInstance()))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("InsertRecord"))
+                  .build();
+          }
+        }
+     }
+     return getInsertRecordMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.grpc.server.proto.UserDetails.UserRequest,
+      com.grpc.server.proto.UserDetails.Response> getUpdateRecordMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateRecord",
+      requestType = com.grpc.server.proto.UserDetails.UserRequest.class,
+      responseType = com.grpc.server.proto.UserDetails.Response.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.grpc.server.proto.UserDetails.UserRequest,
+      com.grpc.server.proto.UserDetails.Response> getUpdateRecordMethod() {
+    io.grpc.MethodDescriptor<com.grpc.server.proto.UserDetails.UserRequest, com.grpc.server.proto.UserDetails.Response> getUpdateRecordMethod;
+    if ((getUpdateRecordMethod = UserServiceGrpc.getUpdateRecordMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getUpdateRecordMethod = UserServiceGrpc.getUpdateRecordMethod) == null) {
+          UserServiceGrpc.getUpdateRecordMethod = getUpdateRecordMethod = 
+              io.grpc.MethodDescriptor.<com.grpc.server.proto.UserDetails.UserRequest, com.grpc.server.proto.UserDetails.Response>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "UserService", "UpdateRecord"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpc.server.proto.UserDetails.UserRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpc.server.proto.UserDetails.Response.getDefaultInstance()))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("UpdateRecord"))
+                  .build();
+          }
+        }
+     }
+     return getUpdateRecordMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -93,6 +157,20 @@ public final class UserServiceGrpc {
       asyncUnimplementedUnaryCall(getSearchUserMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void insertRecord(com.grpc.server.proto.UserDetails.UserRequest request,
+        io.grpc.stub.StreamObserver<com.grpc.server.proto.UserDetails.Response> responseObserver) {
+      asyncUnimplementedUnaryCall(getInsertRecordMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void updateRecord(com.grpc.server.proto.UserDetails.UserRequest request,
+        io.grpc.stub.StreamObserver<com.grpc.server.proto.UserDetails.Response> responseObserver) {
+      asyncUnimplementedUnaryCall(getUpdateRecordMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -102,6 +180,20 @@ public final class UserServiceGrpc {
                 com.grpc.server.proto.UserDetails.UserRequest,
                 com.grpc.server.proto.UserDetails.UserResponse>(
                   this, METHODID_SEARCH_USER)))
+          .addMethod(
+            getInsertRecordMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.grpc.server.proto.UserDetails.UserRequest,
+                com.grpc.server.proto.UserDetails.Response>(
+                  this, METHODID_INSERT_RECORD)))
+          .addMethod(
+            getUpdateRecordMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.grpc.server.proto.UserDetails.UserRequest,
+                com.grpc.server.proto.UserDetails.Response>(
+                  this, METHODID_UPDATE_RECORD)))
           .build();
     }
   }
@@ -131,6 +223,22 @@ public final class UserServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getSearchUserMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void insertRecord(com.grpc.server.proto.UserDetails.UserRequest request,
+        io.grpc.stub.StreamObserver<com.grpc.server.proto.UserDetails.Response> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getInsertRecordMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateRecord(com.grpc.server.proto.UserDetails.UserRequest request,
+        io.grpc.stub.StreamObserver<com.grpc.server.proto.UserDetails.Response> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getUpdateRecordMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -156,6 +264,20 @@ public final class UserServiceGrpc {
     public com.grpc.server.proto.UserDetails.UserResponse searchUser(com.grpc.server.proto.UserDetails.UserRequest request) {
       return blockingUnaryCall(
           getChannel(), getSearchUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.grpc.server.proto.UserDetails.Response insertRecord(com.grpc.server.proto.UserDetails.UserRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getInsertRecordMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.grpc.server.proto.UserDetails.Response updateRecord(com.grpc.server.proto.UserDetails.UserRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getUpdateRecordMethod(), getCallOptions(), request);
     }
   }
 
@@ -184,9 +306,27 @@ public final class UserServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getSearchUserMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.grpc.server.proto.UserDetails.Response> insertRecord(
+        com.grpc.server.proto.UserDetails.UserRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getInsertRecordMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.grpc.server.proto.UserDetails.Response> updateRecord(
+        com.grpc.server.proto.UserDetails.UserRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getUpdateRecordMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_SEARCH_USER = 0;
+  private static final int METHODID_INSERT_RECORD = 1;
+  private static final int METHODID_UPDATE_RECORD = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -208,6 +348,14 @@ public final class UserServiceGrpc {
         case METHODID_SEARCH_USER:
           serviceImpl.searchUser((com.grpc.server.proto.UserDetails.UserRequest) request,
               (io.grpc.stub.StreamObserver<com.grpc.server.proto.UserDetails.UserResponse>) responseObserver);
+          break;
+        case METHODID_INSERT_RECORD:
+          serviceImpl.insertRecord((com.grpc.server.proto.UserDetails.UserRequest) request,
+              (io.grpc.stub.StreamObserver<com.grpc.server.proto.UserDetails.Response>) responseObserver);
+          break;
+        case METHODID_UPDATE_RECORD:
+          serviceImpl.updateRecord((com.grpc.server.proto.UserDetails.UserRequest) request,
+              (io.grpc.stub.StreamObserver<com.grpc.server.proto.UserDetails.Response>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -271,6 +419,8 @@ public final class UserServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
               .addMethod(getSearchUserMethod())
+              .addMethod(getInsertRecordMethod())
+              .addMethod(getUpdateRecordMethod())
               .build();
         }
       }

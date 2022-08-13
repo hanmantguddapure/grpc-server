@@ -1,3 +1,4 @@
+
 package com.grpc.server;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ import io.grpc.ServerBuilder;
 //@SpringBootApplication
 public class GrpcServerApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { //
 		// SpringApplication.run(GrpcServerApplication.class, args);
 
 		try {

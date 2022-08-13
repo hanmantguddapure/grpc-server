@@ -1,7 +1,9 @@
 syntax = "proto3"; /* default is proto2 */
 option java_package = "com.grpc.server.proto";
 service UserService {
-  rpc SearchUser (UserRequest) returns (UserResponse) {}
+  rpc SearchUser (UserRequest) returns (UserResponse) {};
+  rpc InsertRecord (UserRequest) returns (Response) {};
+  rpc UpdateRecord (UserRequest) returns (Response) {};
 }
 message UserRequest {
   string userId=1; /* Id must be bigger than 0 and be the same on client and server */
@@ -12,4 +14,9 @@ message UserResponse {
   string userId = 1;
   string name=2;
   string address=3;
+}
+
+message Response {
+  string status = 1;
+  string message=2;
 }
